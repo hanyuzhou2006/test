@@ -30,8 +30,8 @@ module.exports = {
       ssh_options: "StrictHostKeyChecking=no",
       host : '118.25.52.207',
       ref  : 'origin/master',
-      repo : 'https://github.com/hanyuzhou2006/test.git',
-      path : '~/projects/test',
+      repo : 'git@github.com:hanyuzhou2006/test.git',
+      path : '~/projects/test/',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
