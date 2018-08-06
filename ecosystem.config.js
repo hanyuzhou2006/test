@@ -28,10 +28,12 @@ module.exports = {
       
       user : 'root',
       ssh_options: "StrictHostKeyChecking=no",
-      host : '118.25.52.207',
+      host : '64.137.164.206',
       ref  : 'origin/master',
-      repo : 'git@github.com:hanyuzhou2006/test.git',
+      repo : 'https://github.com/hanyuzhou2006/test.git',
       path : '~/projects/test/',
+      'pre-setup': 'git --version',
+      'post-setup': "ls -la",
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
