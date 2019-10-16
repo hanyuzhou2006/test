@@ -15,7 +15,7 @@ for:
   - sh: npm install
   artifacts:
   - path: node_modules
-  - type: WebDeployPackage
+    type: WebDeployPackage
   deploy:
   - provider: Environment
     name: 155
