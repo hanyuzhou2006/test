@@ -14,18 +14,17 @@ for:
     only:
       - job_name: dependences
   build_script:
-  - npm install
+  - sh: npm install
 -
   matrix:
     only:
-      - job_name: dependences
+      - job_name: Build
   build_script:
-  - ls
-  
-artifacts:
-- path: node_modules
-  type: WebDeployPackage
-deploy:
-- provider: Environment
-  name: 155
+  - sh: ls  
+  artifacts:
+  - path: node_modules
+    type: WebDeployPackage
+  deploy:
+  - provider: Environment
+    name: 155
 ...
