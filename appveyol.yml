@@ -1,0 +1,24 @@
+version: 1.0.{build}
+build_cloud: Docker
+image: Linux
+environment:
+  matrix:
+  - job_name: dependences
+    docker_image: node:10.16.3
+  - job_name: Build
+    job_depends_on: dependences
+    
+for:
+- 
+  matrix:
+    only:
+      - job_name: dependences
+  build_script:
+  - npm install
+artifacts:
+- path: node_modules
+  type: WebDeployPackage
+deploy:
+- provider: Environment
+  name: 155
+...
