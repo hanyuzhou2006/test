@@ -1,6 +1,4 @@
 version: 1.0.{build}
-build_cloud: Docker
-image: Linux
 environment:
   matrix:
     - nodejs_version: "10"
