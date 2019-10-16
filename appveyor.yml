@@ -5,8 +5,6 @@ environment:
   matrix:
   - job_name: dependences
     docker_image: node:10.16.3
-  - job_name: Build
-    job_depends_on: dependences
     
 for:
 - 
@@ -15,17 +13,9 @@ for:
       - job_name: dependences
   build_script:
   - sh: npm install
-  cache:
-  - node_modules
--
-  matrix:
-    only:
-      - job_name: Build
-  build_script:
-  - sh: ls  
   artifacts:
   - path: node_modules
-    type: WebDeployPackage
+  - type: WebDeployPackage
   deploy:
   - provider: Environment
     name: 155
