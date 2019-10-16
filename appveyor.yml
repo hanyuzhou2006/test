@@ -15,6 +15,13 @@ for:
       - job_name: dependences
   build_script:
   - npm install
+-
+  matrix:
+    only:
+      - job_name: dependences
+  build_script:
+  - ls
+  
 artifacts:
 - path: node_modules
   type: WebDeployPackage
