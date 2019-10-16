@@ -1,8 +1,11 @@
 version: 1.0.{build}
 image: ubuntu
 
+stack: node 10
+
 install:
   - npm install
+
 build: off
 
 artifacts:
