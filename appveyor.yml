@@ -3,20 +3,18 @@ build_cloud: Docker
 image: Linux
 environment:
   matrix:
-  - job_name: dependences
-    docker_image: node:10.16.3
-    
-for:
-- 
-  matrix:
-    only:
-      - job_name: dependences
-  build_script:
-  - sh: npm install
-  artifacts:
-  - path: node_modules
-    type: WebDeployPackage
-  deploy:
-  - provider: Environment
-    name: 155
+    - nodejs_version: "10"
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - node --version
+  - npm --version
+  - npm install
+  
+artifacts:
+- path: node_modules
+  type: WebDeployPackage
+deploy:
+- provider: Environment
+  name: 155
 ...
