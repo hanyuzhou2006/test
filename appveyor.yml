@@ -1,17 +1,13 @@
 version: 1.0.{build}
-image: ubuntu
-
-stack: node 10
-
-install:
-  - npm install
-
-build: off
-
+build_cloud: Docker
+image: Linux
+build_script:
+- sh: apt-get update 
+- sh: curl -sL https://deb.nodesource.com/setup_12.x | bash - &&  apt-get install -y nodejs p7zip-full
+- sh: npm install
+- sh: 7z a test.7z ./
 artifacts:
-- path: node_modules
-  type: WebDeployPackage
+- path: test.7z
 deploy:
 - provider: Environment
   name: 155
-...
